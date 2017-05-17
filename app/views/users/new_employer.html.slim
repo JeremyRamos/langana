@@ -1,0 +1,27 @@
+body
+  header
+    h1 Sign Up
+  .row
+    .col-md-6.col-md-offset-3
+      = form_for(@user) do |f|
+        = render "shared/errors", object: @user
+        = f.hidden_field :role
+        fieldset
+          ol
+            li
+              = f.label :first_name
+              = f.text_field :first_name, size: 40
+            li
+              = f.label :last_name
+              = f.text_field :last_name, size: 40
+            li
+              = f.label :mobile_number
+              = f.telephone_field :mobile_number, size: 12
+            li
+              = f.label :password
+              = f.password_field :password, size: 40
+            li
+              = f.label :password_confirmation, "Confirm Password"
+              = f.password_field :password_confirmation, size: 40
+          p
+            = f.submit "Create Account", class: "btn btn-primary"
